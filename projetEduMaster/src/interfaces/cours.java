@@ -15,8 +15,8 @@ import model.Cours;
 public interface cours {
     public void ajouterCours(Cours c);//add ajouter
     public List<Cours> afficher(); //afficher, select
-   public void SupprimerParId(int id);
-   public void ModifierCours(int id,String nom);
-    public void rechercherParId(int id);
+   public void SupprimerParId(Cours c);
+   public void ModifierCours(Cours c);
+    public void rechercherParId(Cours c);
     
 }

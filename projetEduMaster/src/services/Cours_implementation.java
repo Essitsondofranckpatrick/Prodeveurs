@@ -62,9 +62,9 @@ public class Cours_implementation implements cours {
     } 
 
     @Override
-    public void SupprimerParId(int id) {
+    public void SupprimerParId(Cours c) {
         
-        String req="DELETE FROM cours WHERE id_cours="+id;
+        String req="DELETE FROM cours WHERE id_cours="+c.getId_cours();
         try{
               Statement st=cnx.createStatement();
               st.executeUpdate(req);
@@ -78,9 +78,9 @@ public class Cours_implementation implements cours {
     }
 
     @Override
-    public void ModifierCours(int id,String nom) {
+    public void ModifierCours(Cours c) {
      try{       
-      String req="UPDATE cours SET nom_cours='"+nom+"' WHERE id_cours=" +id;
+      String req="UPDATE cours SET nom_cours='"+c.getNom_cours()+"' WHERE id_cours=" +c.getId_cours();
        Statement st=cnx.createStatement();
        st.executeUpdate(req);
         System.out.println("cours modifie avec succes!!");
@@ -92,9 +92,9 @@ public class Cours_implementation implements cours {
     }
 
     @Override
-    public void rechercherParId(int id) {
+    public void rechercherParId(Cours c) {
         try{
-           String req="SELECT * FROM `cours` WHERE id_cours="+id; 
+           String req="SELECT * FROM `cours` WHERE id_cours="+c.getId_cours(); 
            Statement st=cnx.createStatement();
            ResultSet rs=st.executeQuery(req);
            rs.last();
