@@ -47,6 +47,7 @@ public class MaConnexion {
     
     //singleton 3 get instance de MaConnexion
     //test
+    //blablalblalalaal
     public static MaConnexion getInstance(){
         if (instance==null){
             instance=new MaConnexion();
