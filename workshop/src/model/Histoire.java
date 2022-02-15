@@ -4,19 +4,21 @@
  * and open the template in the editor.
  */
 package model;
-
+import interfaces.HistoireService;
 /**
  *                                                      
  * @author user
  */
 public class Histoire {
+
+   
     
     //att
     private int id_histoire;
     private int age;
     private String langue;
     private String nom_histoire;
-    
+     
     
     //constructor
 
@@ -30,6 +32,11 @@ public class Histoire {
     public Histoire(){
         
     }
+
+    public Histoire(int id_histoire) {
+        this.id_histoire = id_histoire;
+    }
+    
     
     //getters&setters
 

@@ -5,9 +5,10 @@
  */
 package workshop; 
 
+import interfaces.HistoireService;
 import model.Histoire;
 import model.Test_histoire;
-import service.HistoireServiceI;
+import service.HistoireI;
 
 /**
  *
@@ -20,17 +21,25 @@ public class Workshop {
      */
     public static void main(String[] args) {
         //service
-        HistoireServiceI hs = new HistoireServiceI();
+       HistoireI hs = new HistoireI();
         //histoire
-        Histoire h2 = new Histoire(20, "ar", "la belle et le roi");
+        //Histoire h2 = new Histoire(25, "arabe", "la belle ");
         //insert
         //hs.AjouterHistoire(h2);
         //select
-        System.out.println(hs.afficherhistoire());
+        //System.out.println(hs.afficherhistoire());
 
-        // hs.SupprimerHistoire(19);
+        // hs.SupprimerHistoire(22);
+        
         // System.out.println(hs.afficherhistoire());
-       //hs.ModifierHistoire( 20,22, "fr", "la belle et la bete");
+      // hs.ModifierHistoire( h2);
+       //**//
+       // if (hs.ModifierHistoire (new Histoire(18))) {
+         //   System.out.println("histoire modifié avec succes.");
+       // } else {
+         //   System.out.println("Erreur de modification.");
+        //}
+        //**//
         
         //Test_histoire t1 = new Test_histoire(18,"quizz","refresh");
         //hs.AjouterTest_histoire(t1);

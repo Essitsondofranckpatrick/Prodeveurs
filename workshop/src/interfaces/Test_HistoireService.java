@@ -6,25 +6,20 @@
 package interfaces;
 
 import java.util.List;
-import model.Histoire;
 import model.Test_histoire;
+
 /**
  *
  * @author user
  */
-public interface HistoireService {
-    
-    //add
-    public void AjouterHistoire(Histoire h);
+public interface Test_HistoireService {
+  public void AjouterTest_histoire(Test_histoire t);
     //select
-    public List<Histoire> afficherhistoire();
+    public List<Test_histoire> afficherTest_histoire();
     //delete
-    public void SupprimerHistoire(int id_histoire);
+    public void SupprimerTest_histoire(int id_test);
     //update
-    public boolean ModifierHistoire (Histoire H); 
+    public boolean ModifierTest_histoire(Test_histoire T); 
     
-    ////////////////////////
-    
-   
-    
+       
 }
