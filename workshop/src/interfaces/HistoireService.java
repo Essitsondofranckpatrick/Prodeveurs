@@ -12,7 +12,7 @@ import model.Test_histoire;
  *
  * @author user
  */
-public interface HistoireService {
+public interface HistoireService <t> {
     
     //add
     public void AjouterHistoire(Histoire h);
@@ -22,6 +22,9 @@ public interface HistoireService {
     public void SupprimerHistoire(int id_histoire);
     //update
     public boolean ModifierHistoire (Histoire H); 
+    //rechercher par nom
+    public List<Histoire>rechercherHistoire(String nomCherche);
+    
     
     ////////////////////////
     

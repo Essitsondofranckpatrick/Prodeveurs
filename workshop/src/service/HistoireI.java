@@ -12,6 +12,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Histoire;
 import util.MaConnexion;
 
@@ -27,12 +29,15 @@ public class HistoireI implements HistoireService {
     @Override
     public void AjouterHistoire(Histoire h) {
         //request                                           
-        String req = "INSERT INTO `histoire`( `age`, `langue`, `nom_histoire`) VALUES ('" + h.getAge() + "','" + h.getLangue() + "',  '"+h.getNom_histoire()+"')";
+        String req = "INSERT INTO `histoire`( `age`, `langue`, `nom_histoire`, `contenu_histoire`, `couverture_histoire`)  VALUES ('" + h.getAge() + "','" + h.getLangue() + "',  '"+h.getNom_histoire()+"' , '"+h.getContenu_histoire()+"', '"+h.getCouverture_histoire()+"')";
 
         try {
             //insert
-            Statement st = cnx.createStatement();
+            Statement st = cnx.createStatement();           
             st.executeUpdate(req);
+            
+            
+            
             System.out.println("histoire ajoutee avec succes");
 
         } catch (SQLException ex) {
@@ -55,7 +60,7 @@ public class HistoireI implements HistoireService {
 
             while (rs.next()) {
 
-                histoires.add(new Histoire(rs.getInt(1), rs.getString(2), rs.getString(3)));
+            histoires.add(new Histoire(rs.getInt(1), rs.getInt(2) ,rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6)));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -90,11 +95,28 @@ public class HistoireI implements HistoireService {
             return false; 
         } 
         return true;
-    }
+    }  
 
-    
-    
-   
+     @Override
+       public List<Histoire>rechercherHistoire(String nomCherche){
+           
+           List<Histoire> histoires= new ArrayList<>();
+           String req= "SELECT * FROM `histoire` WHERE `nom_histoire` LIKE '"+nomCherche+ "' ";
+          try {
+            
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+
+            while (rs.next()) {
+
+            histoires.add(new Histoire(rs.getInt(1), rs.getInt(2) ,rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6)));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return histoires; 
+       }
+
     
    
 }

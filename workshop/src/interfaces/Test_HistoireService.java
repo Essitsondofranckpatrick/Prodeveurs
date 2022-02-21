@@ -20,6 +20,5 @@ public interface Test_HistoireService {
     public void SupprimerTest_histoire(int id_test);
     //update
     public boolean ModifierTest_histoire(Test_histoire T); 
-    
        
 }
