@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -17,18 +17,30 @@ public class Resultat_test_histoire {
     private int id_test;
     private int score;
     private Date date;
+    private int ligne_histoire;
+
+
 
     public Resultat_test_histoire() {
     }
 
-    public Resultat_test_histoire(int id_resultat, int id_user, int id_test, int score, Date date) {
+     public Resultat_test_histoire(int id_resultat, int id_user, int id_test, int score, Date date, int ligne_histoire) {
         this.id_resultat = id_resultat;
         this.id_user = id_user;
         this.id_test = id_test;
         this.score = score;
         this.date = date;
+        this.ligne_histoire = ligne_histoire;
     }
 
+     public int getLigne_histoire() {
+        return ligne_histoire;
+    }
+
+    public void setLigne_histoire(int ligne_histoire) {
+        this.ligne_histoire = ligne_histoire;
+    }
+    
     public int getId_resultat() {
         return id_resultat;
     }
@@ -71,9 +83,12 @@ public class Resultat_test_histoire {
 
     @Override
     public String toString() {
-        return "Resultat_test_histoire{" + "id_resultat=" + id_resultat + ", id_user=" + id_user + ", id_test=" + id_test + ", score=" + score + ", date=" + date + '}';
+        return "Resultat_test_histoire{" + "id_resultat=" + id_resultat + ", id_user=" + id_user + ", id_test=" + id_test + ", score=" + score + ", date=" + date + ", ligne_histoire=" + ligne_histoire + '}';
     }
-    
+
+   
+
+
     
     
 }

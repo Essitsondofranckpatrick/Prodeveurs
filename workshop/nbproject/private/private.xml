@@ -5,11 +5,15 @@
         <group>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/workshop/src/interfaces/Test_HistoireService.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/workshop/src/service/Test_HistoireI.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/workshop/src/model/Resultat_test_histoire.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/workshop/src/model/Histoire.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/workshop/src/service/HistoireI.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/workshop/src/workshop/Workshop.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/workshop/src/interfaces/HistoireService.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/workshop/src/service/PDFClasse.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/workshop/src/GUI/startFXML.fxml</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/workshop/src/GUI/StartFXMLController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/workshop/src/service/HistoireI.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/workshop/src/GUI/NewFXMain.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/workshop/src/service/Resultat_test_histoireI.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/workshop/src/model/Test_histoire.java</file>
         </group>
