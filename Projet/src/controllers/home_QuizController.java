@@ -88,7 +88,7 @@ public class home_QuizController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
           tabview.setEditable(true);
       Modifier();
-       setCellfromtabletoQuiz();
+      
        
         try { 
             refreche();
@@ -101,6 +101,9 @@ public class home_QuizController implements Initializable {
         
         
         col_btnDelet = new TableColumn("Supprimer");
+        
+        
+        
               javafx.util.Callback<TableColumn<quiz, String>, TableCell<quiz, String>> cellFactory
                 = new Callback<TableColumn<quiz, String>, TableCell<quiz, String>>() {
             public TableCell call(final TableColumn<quiz, String> param) {
@@ -298,16 +301,5 @@ public class home_QuizController implements Initializable {
     }
 
  
-        private void setCellfromtabletoQuiz() {
-        tabview.setOnMouseClicked(e -> {
-
-            Quiz  = tabview.getItems().get(tabview.getSelectionModel().getSelectedIndex());
-           
-        
-
-      
-        }
-        );
-
-    }
+   
 }

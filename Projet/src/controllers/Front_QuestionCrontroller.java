@@ -66,7 +66,7 @@ public class Front_QuestionCrontroller implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
         
-        
+        System.out.println(Item_quizController.quiz_static);
       
             taille_questions = questonss.size();
             System.out.println(questonss);

@@ -8,6 +8,7 @@ package controllers;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,6 +23,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import model.quiz;
 import service.QuizzService;
 
 /**
@@ -47,7 +49,8 @@ public class Front_QuizCrontroller implements Initializable {
     private Label username;
     QuizzService QS = new QuizzService();
      private int taille_quizs = 0;
-   static int indiceQuiz = 0;
+   private int indiceQuiz = 0;
+   static int id_quiz_static=0;
     static int score_final=0;
 
     /**
@@ -56,13 +59,15 @@ public class Front_QuizCrontroller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
       QS.ModifierQuizz_resultat();
-       
-            taille_quizs = QS.afficherQuizz().size();
+       List<quiz> list=QS.afficherQuizz();
+            taille_quizs = list.size();
        
         Node[] nodes_quiz = new Node[taille_quizs];
         scrollpane_quiz.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         for (indiceQuiz = 0; indiceQuiz < taille_quizs; indiceQuiz++) {
             try {
+                
+                id_quiz_static=list.get(indiceQuiz).getId_quizs();
 
                 nodes_quiz[indiceQuiz] = FXMLLoader.load(getClass().getResource("/GUI/Item_Quiz.fxml"));
 

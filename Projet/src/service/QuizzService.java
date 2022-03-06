@@ -212,31 +212,7 @@ public  String getMd5(String input)
         }
         
     }
- public quiz get_quiz_affichage(int i) {
-        quiz q = null;
-        int nombre = 0;
-        String requete = "SELECT * FROM `quizs` ";
-           try {
-            PreparedStatement ps = cnx.prepareStatement(requete);
-            ResultSet rs = ps.executeQuery();
 
-            while (rs.next()) {
-
-                if (i == nombre) {
-     
-                   
-               q=new quiz (rs.getInt("id_quizs"),rs.getString("image"),rs.getString("matiere"),rs.getString("difficulte"),rs.getInt("resultat"));
-                
-                }
-                nombre++;
-                         }
-
-        } catch (SQLException ex) {
-            System.out.println(ex);
-        }
-        return q;
-
-    }
   /*  @Override
 public List<List<question>> listeQ (String difficulte, String matiere){
     Connection cnx = MaConnexion.getInstance().getCnx();

@@ -5,6 +5,7 @@
  */
 package controllers;
 
+import static controllers.Front_QuizCrontroller.id_quiz_static;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -43,22 +44,27 @@ public class Item_quizController implements Initializable {
     @FXML
     private Button btn_start;
        private String ImageUrl = "http://localhost/img/";
- 
+    private quiz q=QS.getQuiz(Front_QuizCrontroller.id_quiz_static);
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         quiz_static = QS.get_quiz_affichage(Front_QuizCrontroller.indiceQuiz);
-         Image image = new Image(ImageUrl + quiz_static.getImage());
+        
+         
+   
+         Image image = new Image(ImageUrl + q.getImage());
         
         image_qr.setImage(image);
-        diff_txt.setText(quiz_static.getDifficulte());
-         matiere_txt.setText(quiz_static.getMatiere());
+        diff_txt.setText(q.getDifficulte());
+         matiere_txt.setText(q.getMatiere());
     }  
 
     @FXML
     private void start(ActionEvent event) throws IOException {
+          
+        
+           quiz_static=q;
            Node node = (Node) event.getSource();
 
             Stage stage = (Stage) node.getScene().getWindow();
@@ -68,5 +74,4 @@ public class Item_quizController implements Initializable {
             stage.setScene(scene);
             stage.show();
     }
-    
 }
