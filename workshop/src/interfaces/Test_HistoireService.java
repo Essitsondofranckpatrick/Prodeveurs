@@ -17,7 +17,7 @@ public interface Test_HistoireService {
     //select
     public List<Test_histoire> afficherTest_histoire();
     //delete
-    public void SupprimerTest_histoire(int id_test);
+    public void SupprimerTest_histoire(Test_histoire T);
     //update
     public boolean ModifierTest_histoire(Test_histoire T); 
        

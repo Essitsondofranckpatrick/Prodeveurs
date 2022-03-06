@@ -11,6 +11,7 @@ import com.itextpdf.text.pdf.parser.PdfTextExtractor;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
+import model.Histoire; 
 import model.Resultat_test_histoire;
 import static service.Test_HistoireI.cnx;
 
@@ -20,7 +21,34 @@ import static service.Test_HistoireI.cnx;
  */
 public class PDFClasse {
 
-    public void lireHistoire(Resultat_test_histoire r) {
+    public String contenuHistoire(Histoire h) {
+        try {
+            //Créer une instance PdfReader.
+            PdfReader pdf = new PdfReader("C:\\Users\\user\\Documents\\NetBeansProjects\\workshop\\src\\GUI\\assests\\contenu\\"+h.getContenu_histoire());
+            String a = "";
+            //Récupérer le nombre de pages en pdf.
+            int nbrPages = pdf.getNumberOfPages();
+
+            //Itérer le pdf à travers les pages.
+            for (int i = 1; i <= nbrPages; i++) {
+                //Extraire le contenu de la page à l'aide de PdfTextExtractor.
+                String content = PdfTextExtractor.getTextFromPage(pdf, i);
+                a = a + content;
+                //Afficher le contenu de la page sur la console.
+            }
+
+            //Fermez le PdfReader.
+            pdf.close();
+            return a;
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
+
+public void lireHistoire(Resultat_test_histoire r) {
 
         int i = r.getLigne_histoire() + 1;
 
@@ -56,13 +84,12 @@ public class PDFClasse {
                         i++;
                     }
                 }
-
-            }
+            } 
             if (i >= nbrPages) {
                 String content = PdfTextExtractor.getTextFromPage(pdf, i);
                 System.out.println("Contenu du page " + i + ":\n" + content + "\n");
                 r.setLigne_histoire(nbrPages);
-                try {
+                try { 
                     String requette = " UPDATE `resultat_test_histoire` SET `ligne_histoire` =  '" + i + "'   WHERE `id_resultat`=  '" + r.getId_resultat() + "' ";
                     Statement stm = cnx.createStatement();
                     stm.executeUpdate(requette);

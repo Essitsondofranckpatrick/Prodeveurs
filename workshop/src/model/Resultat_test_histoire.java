@@ -33,6 +33,8 @@ public class Resultat_test_histoire {
         this.ligne_histoire = ligne_histoire;
     }
 
+   
+
      public int getLigne_histoire() {
         return ligne_histoire;
     }

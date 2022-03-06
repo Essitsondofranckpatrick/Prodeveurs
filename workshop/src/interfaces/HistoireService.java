@@ -19,11 +19,12 @@ public interface HistoireService <t> {
     //select
     public List<Histoire> afficherhistoire();
     //delete
-    public void SupprimerHistoire(int id_histoire);
+    public void SupprimerHistoire(Histoire h);
     //update
     public boolean ModifierHistoire (Histoire H); 
     //rechercher par nom
     public List<Histoire>rechercherHistoire(String nomCherche);
+   // public int histoireID();
     
     
     ////////////////////////

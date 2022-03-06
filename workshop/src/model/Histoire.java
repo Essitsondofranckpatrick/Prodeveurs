@@ -4,33 +4,43 @@
  * and open the template in the editor.
  */
 package model;
-import interfaces.HistoireService;
 /**
  *                                                      
  * @author user
  */
 public class Histoire {
 
-    //att
-    private int id_histoire;
+    //att 
+   private int id_histoire;
     private int age;
     private String langue;
     private String nom_histoire;
     private String contenu_histoire;
     private String couverture_histoire;
+    private String catégorie;
     
      
     
     //constructor
-    public Histoire(int id_histoire, int age, String langue, String nom_histoire, String contenu_histoire, String couverture_histoire){
+    public Histoire(int id_histoire, int age, String langue, String nom_histoire, String contenu_histoire, String couverture_histoire, String catégorie) {   
         this.id_histoire = id_histoire;
         this.age = age;
         this.langue = langue;
         this.nom_histoire = nom_histoire;
         this.contenu_histoire = contenu_histoire;
         this.couverture_histoire = couverture_histoire;
-        
+        this.catégorie = catégorie;
     }
+
+    public Histoire(int age, String langue, String nom_histoire, String contenu_histoire, String couverture_histoire, String catégorie) {
+        this.age = age;
+        this.langue = langue;
+        this.nom_histoire = nom_histoire;
+        this.contenu_histoire = contenu_histoire;
+        this.couverture_histoire = couverture_histoire;
+        this.catégorie = catégorie;
+    }
+    
 
     //constructor_pardefaut
     public Histoire() {
@@ -43,18 +53,15 @@ public class Histoire {
     public Histoire(String nom_histoire) {
         this.nom_histoire = nom_histoire;
     }
-    
-    
-    //getters&setters
 
-    public int getId() {
+    public int getId_histoire() {
         return id_histoire;
     }
 
-    public void setId(int id) {
+    public void setId_histoire(int id_histoire) {
         this.id_histoire = id_histoire;
     }
-
+   
     public int getAge() {
         return age;
     }
@@ -94,14 +101,24 @@ public class Histoire {
     public void setCouverture_histoire(String couverture_histoire) {
         this.couverture_histoire = couverture_histoire;
     }
+
+    public String getCatégorie() {
+        return catégorie;
+    }
+
+    public void setCatégorie(String catégorie) {
+        this.catégorie = catégorie;
+    }
     
     
     //afficher
 
     @Override
     public String toString() {
-        return "Histoire{" + "id_histoire=" + id_histoire + ", age=" + age + ", langue=" + langue + ", nom_histoire=" + nom_histoire + ", contenu_histoire=" + contenu_histoire + ", couverture_histoire=" + couverture_histoire + '}';
+        return "Histoire{" + "id_histoire=" + id_histoire + ", age=" + age + ", langue=" + langue + ", nom_histoire=" + nom_histoire + ", contenu_histoire=" + contenu_histoire + ", couverture_histoire=" + couverture_histoire + ", cat\u00e9gorie=" + catégorie + '}';
     }
+
+   
 
     
 

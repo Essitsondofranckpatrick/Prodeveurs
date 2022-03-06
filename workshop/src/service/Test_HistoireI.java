@@ -12,18 +12,16 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import javafx.scene.control.Alert;
 import model.Histoire;
 import model.Test_histoire;
 import static service.HistoireI.cnx;
 import util.MaConnexion;
 
-
 /**
  *
  * @author user
  */
-
-
 public class Test_HistoireI implements Test_HistoireService {
 
     //var 
@@ -33,8 +31,7 @@ public class Test_HistoireI implements Test_HistoireService {
     @Override
     public void AjouterTest_histoire(Test_histoire t) {
 //request                                           
-        String req = "INSERT INTO `test_histoire` ( `id_histoire`, `type_test`, `nom_test`, `contenu_test`, `couverture_test`, `correction`) VALUES ('" + t.getId_histoire() + "','" + t.getType_test() + "', '" + t.getNom_test() + "', '" + t.getContenu_test() + "', '" + t.getCouverture_test() + "' , '" + t.getCorrection() + "')";
-
+        String req = "INSERT INTO `test_histoire`( `id_histoire`, `question1`, `R11`, `R12`, `R13`, `correctionQ1`, `question2`, `R21`, `R22`, `R23`, `correctionQ2`, `question3`, `R31`, `R32`, `R33`, `correctionQ3`) VALUES ('" + t.getId_histoire() + "', '" + t.getQuestion1() + "', '" + t.getR11() + "','" + t.getR12() + "','" + t.getR13() + "','" + t.getCorrectionQ1() + "','" + t.getQuestion2() + "','" + t.getR21() + "','" + t.getR22() + "','" + t.getR23() + "','" + t.getCorrectionQ2() + "','" + t.getQuestion3() + "','" + t.getR31() + "','" + t.getR32() + "','" + t.getR33() + "','" + t.getCorrectionQ3() + "')";
         try {
             //insert
             Statement st = cnx.createStatement();
@@ -46,8 +43,6 @@ public class Test_HistoireI implements Test_HistoireService {
         }
     }
 
-  
-    
     @Override
     public List<Test_histoire> afficherTest_histoire() {
         //var
@@ -62,20 +57,18 @@ public class Test_HistoireI implements Test_HistoireService {
 
             while (rs.next()) {
 
-                tests.add(new Test_histoire(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7)));
+                tests.add(new Test_histoire(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14), rs.getString(15), rs.getString(16),rs.getString(17)));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return tests;
     }
-    
 
-    
     @Override
-    public void SupprimerTest_histoire(int id_test) {
+    public void SupprimerTest_histoire(Test_histoire T) {
         try {
-            String req = "DELETE FROM test_histoire where id_test=" + id_test;
+            String req = "DELETE FROM test_histoire where id_test='"+T.getId_test()+"'";
             Statement st = cnx.createStatement();
             st.executeUpdate(req);
             System.out.println("test est supprime");
@@ -84,6 +77,8 @@ public class Test_HistoireI implements Test_HistoireService {
             ex.printStackTrace();
         }
     }
+    
+   
 
     @Override
     public boolean ModifierTest_histoire(Test_histoire T) {
@@ -101,6 +96,5 @@ public class Test_HistoireI implements Test_HistoireService {
         }
         return true;
     }
-
 
 }

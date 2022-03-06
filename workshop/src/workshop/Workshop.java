@@ -30,12 +30,11 @@ public class Workshop {
     public static void main(String[] args) {
         //service
         HistoireI hs = new HistoireI();
-        Test_HistoireI ts = new Test_HistoireI();
-        Test_histoire t1 = new Test_histoire(20, "quizzs", "azerty", "querty", "hi", "ABC");
-//       
+        Test_HistoireI ts = new Test_HistoireI();       
         Resultat_test_histoireI resultat = new Resultat_test_histoireI();
-        // resultat.comparerCorrection(new Resultat_test_histoire(1, 1, 3, 0, Date.valueOf(LocalDate.now())));
-//        
+        
+        //resultat.comparerCorrection(new Resultat_test_histoire(1, 1, 3, 0, Date.valueOf(LocalDate.now())));
+       
 
         // System.out.println(hs.rechercherHistoire("laeila w dhib")); 
         // ts.AjouterTest_histoire(t1);
@@ -44,12 +43,12 @@ public class Workshop {
         //}
         //System.out.println(ts.afficherTest_histoire());
         //histoire
-        //Histoire h2 = new Histoire(25, "arabe", "la belle ");
+       // Histoire h = new Histoire(5, "français", "labeille","  ","C:\\Users\\user\\Desktop\\PI DEV\\abeille.jpg","magie");
         //insert
-        //hs.AjouterHistoire(h2);
+        //hs.AjouterHistoire(h);
         //select
         // hs.SupprimerHistoire(22);
-        // System.out.println(hs.afficherhistoire());
+       // System.out.println(hs.afficherhistoire());
         // hs.ModifierHistoire( h2);
         //**
         // if (hs.ModifierHistoire (new Histoire(18))) {
@@ -63,13 +62,14 @@ public class Workshop {
         //hs.SupprimerTest_histoire(1);
         //System.out.println(hs.afficherTest_histoire());
         //manipulation pdf
-        PDFClasse pdf = new PDFClasse();
-        Resultat_test_histoire x = resultat.afficher()
-                .stream()
-                .filter(e -> e.getId_resultat() == 1)
-                .findAny()
-                .orElse(null);
-        pdf.lireHistoire(x);
-    }
+//        PDFClasse pdf = new PDFClasse();
+//        Resultat_test_histoire x = resultat.afficher()
+//                .stream()
+//                .filter(e -> e.getId_resultat() == 1)
+//                .findAny()
+//                .orElse(null);
+//        pdf.lireHistoire(x); 
+//    }
 
+}
 }
